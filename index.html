@@ -6,8 +6,11 @@
         <link rel="stylesheet" href="style.css">
         <title>Hangman Game</title>
     </head>
-    <body>
+    <body lang="fr">
         <h1 class="text-center col-12">Hangman</h1>
+        <div class="row">
+            <button class="btn btn-primary mx-auto buttonStart" id="buttonStart" type="submit">Start</button>
+        </div>
         <div class="container-fluid rulesAndImg">
             <div class="row">
             <div class="col-4 rulesGame">
@@ -15,13 +18,29 @@
                 <p>Mais attention, vous n'avez le droit qu'à x try</p>
 
             </div>
-            <div class="col-8 imgHangman" id="imgHangman">
+            <div class="col-6 imgHangman" id="imgHangman">
 
             </div>
+            <div class="col-2">
+                <p>Chances restantes <span id="tryUse"></span>/7</p>
+            </div>
+
 
             </div>
         </div>
-        
+        <div>
+            <p class="text-center">Mot à trouver :</p>
+            <p class="text-center" id="wordToFind"></p>
+        </div>
+        <form>
+        <div class="row">
+        <label  class='col-12 text-center' for="name">Tapez votre lettre ou le mot.</label>
+       <input class='mx-auto' type="text" id="answer" name="name">
+        </div>
+    </form>
+    <div class="row">
+    <button class="btn btn-primary mx-auto" id="validate" type="submit">Validez votre réponse</button>
+</div>
 
 
 

@@ -8,9 +8,11 @@ html {
 }
 .imgHangman{
     background-color: lightpink;
-    height: 60rem;
-    width: 15rem;
+    height: 25rem;
 }
 .rulesAndImg {
+    margin-top: 3rem;
+}
+.buttonStart{
     margin-top: 3rem;
 }
