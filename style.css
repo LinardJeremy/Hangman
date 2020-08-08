@@ -7,7 +7,10 @@ html {
     padding: 0;
 }
 .imgHangman{
-    background-color: lightpink;
+    /* background-color: lightpink; */
+    background-image: url(0.jpg);
+    background-repeat: no-repeat;
+    background-position: center left 9rem;
     height: 25rem;
 }
 .rulesAndImg {
@@ -15,4 +18,8 @@ html {
 }
 .buttonStart{
     margin-top: 3rem;
+}
+.endGame {
+    font-size: 3rem;
+    font-weight: bolder;
 }
