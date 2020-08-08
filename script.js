@@ -15,7 +15,7 @@ array2 =[];
 let answers = "";
 array3 = [];
 let wordToFind = document.getElementById("wordToFind");
-let spans = document.createElement('span');
+let test = [];
 
 document.getElementById("buttonStart").addEventListener('click',function(){
     // Selection un element aléatoire dans le tableau des noms;
@@ -24,23 +24,20 @@ document.getElementById("buttonStart").addEventListener('click',function(){
    for (let i=0;i<array2.length;i++){
        array3.push(array2[i].toUpperCase());
    }
-   for (let j=0; j<array3.length;j++){
-    spans.innerHTML = "_"
-    wordToFind.appendChild(spans);
-       
-   }
+   test =array3.map(element => element="_");
+
+   wordToFind.innerHTML = test.join('');
 })
 document.getElementById('validate').addEventListener('click',function(){
-let answersInput = document.getElementById('answer').value.toUpperCase();
+    let answersInput = document.getElementById('answer').value.toUpperCase();
 let index = array3.indexOf(answersInput);
- let answers = answersInput;
-    console.log(answers);
     console.log(array3);
-if (index>-1){
-    wordToFind.appendChild(spans);
-    spans.innerHTML= array3[index];
-
-}
+    console.log(index);
+    if (index>=0){
+        test[index]=array3[index];
+    }
+    console.log(test);
+   wordToFind.innerHTML = test.join('');
 
 
 })
