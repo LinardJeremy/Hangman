@@ -46,18 +46,22 @@ let index = array3.indexOf(answersInput);
     if (answersInput === completeWord){
         wordToFind.innerHTML = completeWord;
     }
+    
     if (index>=0){
-        test[index]=array3[index];
-   wordToFind.innerHTML = test.join('');
-        array3[index]= null;
+ test[index]=array3[index];
+  wordToFind.innerHTML = test.join('');
+         array3[index]= null;
     }
     if (index<0){
         score++;
 tryUse.innerHTML= score;
-
     }
-    if (test.indexOf("_")===-1){
-        document.getElementById("imgHangman").style.backgroundColor="red";
+    
+if (test.indexOf("_")===-1){
+    document.getElementById("endGame").style.display = "block";
+    document.getElementById("endGame").innerHTML ="Bravo ! Vous avez trouvé le mot! Cliquer sur reset pour recommencer"
+    document.getElementById("validate").disabled = true;
+    
     }
     if (score==1){
         document.getElementById("imgHangman").style.backgroundImage= 'url(1.jpg)';
@@ -92,6 +96,8 @@ tryUse.innerHTML= score;
         wordToFind.style.display = "none";
  document.getElementById("endGame").style.display = "block";
  document.getElementById("endGame").innerHTML ="Vous avez perdu désolé le mot était : " + completeWord;
+ document.getElementById("validate").disabled = true;
+
     }
 
 })
