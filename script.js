@@ -66,6 +66,8 @@ if (test.indexOf("_")===-1 ||answersInput === completeWord){
     document.getElementById("validate").style.display = "none";
     document.getElementById("reset").style.display = "block";
 document.getElementById('answer').style.display= "none";
+document.getElementById('label').style.display= "none";
+
 
 
     
@@ -99,11 +101,17 @@ document.getElementById('answer').style.display= "none";
     }
     if (score==10){
         document.getElementById("imgHangman").style.backgroundImage= 'url(10.jpg)';
-        document.getElementById("motATrouver").style.display = "none";
+document.getElementById("motATrouver").style.display = "none";
         wordToFind.style.display = "none";
  document.getElementById("endGame").style.display = "block";
- document.getElementById("endGame").innerHTML ="Vous avez perdu désolé le mot était : " + completeWord;
- document.getElementById("validate").disabled = true;
+ document.getElementById("endGame").innerHTML ="Vous avez perdu le mot était : " + completeWord + "."+ " Cliquez sur reset pour recommencer";
+ document.getElementById("validate").style.display = "none";
+ document.getElementById("reset").style.display = "block";
+document.getElementById('answer').style.display= "none";
+document.getElementById('label').style.display= "none";
+
+
+
 
     }
     
@@ -112,7 +120,11 @@ document.getElementById('answer').value = "";
 })
 
 function createArray(){
-document.getElementById('answer').style.display= "block";
+    wordToFind.style.display = "block";
+    document.getElementById("motATrouver").style.display = "block";
+    document.getElementById('answer').style.display= "block";
+    document.getElementById('label').style.display= "block";
+
     score = 0;
 tryUse.innerHTML= score;
 document.getElementById("imgHangman").style.backgroundImage= 'url(0.jpg)';
