@@ -34,7 +34,13 @@ document.getElementById("reset").addEventListener('click',createArray);
 
 document.getElementById('validate').addEventListener('click',function(){
     let answersInput = document.getElementById('answer').value.toUpperCase();
+    if (answersInput===""){
+        alert("Le champ doit contenir au moins une lettre");
+    }
+    else {
     answerGiven.push(answersInput);
+
+    }
     document.getElementById("answerGiven").innerHTML= answerGiven;
 let index = array3.indexOf(answersInput);
     console.log(completeWord);
@@ -49,7 +55,7 @@ let index = array3.indexOf(answersInput);
 
         }
     }
-    if (index<0){
+    if (index<0 && answersInput!=completeWord && answersInput!=""){
         score++;
 tryUse.innerHTML= score;
     }
@@ -106,6 +112,7 @@ document.getElementById('answer').value = "";
 })
 
 function createArray(){
+document.getElementById('answer').style.display= "block";
     score = 0;
 tryUse.innerHTML= score;
 document.getElementById("imgHangman").style.backgroundImage= 'url(0.jpg)';
