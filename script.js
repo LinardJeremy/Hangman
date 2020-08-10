@@ -7,9 +7,14 @@ let wordHidden = [
     "CSS",
     "Programmeur",
     "Web",
-    "Internet"
+    "Internet",
+    "xyphophore",
+    "Caligula",
+    "Marc-Antoine",
+    "Marc-Aurele"
 ]
 let completeWord = "";
+let answerGiven = [];
 let word ="";
 let randWord = Math.random()*10;
 array2 =[];
@@ -22,45 +27,41 @@ let tryUse = document.getElementById('tryUse');
 tryUse.innerHTML= score;
  document.getElementById("endGame").style.display = "none";
  let validate = document.getElementById("validate").disabled = true;
+ let reset = document.getElementById("reset").style.display = "none";
 
-document.getElementById("buttonStart").addEventListener('click',function(){
-    // Selection un element aléatoire dans le tableau des noms;
-    document.getElementById("validate").disabled = false;
-    word = wordHidden[Math.floor(Math.random() * wordHidden.length)];
- document.getElementById("buttonStart").disabled = "true";
+document.getElementById("buttonStart").addEventListener('click',createArray);
+document.getElementById("reset").addEventListener('click',createArray);
 
-   array2 =  word.split('');
-   for (let i=0;i<array2.length;i++){
-       array3.push(array2[i].toUpperCase());
-   }
-   test =array3.map(element => element="_");
- completeWord = array3.join("");
-
-
-   wordToFind.innerHTML = test.join('');
-})
 document.getElementById('validate').addEventListener('click',function(){
     let answersInput = document.getElementById('answer').value.toUpperCase();
+    answerGiven.push(answersInput);
+    document.getElementById("answerGiven").innerHTML= answerGiven;
 let index = array3.indexOf(answersInput);
     console.log(completeWord);
     if (answersInput === completeWord){
         wordToFind.innerHTML = completeWord;
     }
     
-    if (index>=0){
- test[index]=array3[index];
-  wordToFind.innerHTML = test.join('');
-         array3[index]= null;
+    for (let q=0;q<array3.length;q++){
+        if (array3[q]===answersInput){
+            test[q]=array3[q];
+           wordToFind.innerHTML = test.join('');
+
+        }
     }
     if (index<0){
         score++;
 tryUse.innerHTML= score;
     }
     
-if (test.indexOf("_")===-1){
+if (test.indexOf("_")===-1 ||answersInput === completeWord){
     document.getElementById("endGame").style.display = "block";
     document.getElementById("endGame").innerHTML ="Bravo ! Vous avez trouvé le mot! Cliquer sur reset pour recommencer"
-    document.getElementById("validate").disabled = true;
+    document.getElementById("validate").style.display = "none";
+    document.getElementById("reset").style.display = "block";
+document.getElementById('answer').style.display= "none";
+
+
     
     }
     if (score==1){
@@ -99,5 +100,38 @@ if (test.indexOf("_")===-1){
  document.getElementById("validate").disabled = true;
 
     }
+    
+document.getElementById('answer').value = "";
 
 })
+
+function createArray(){
+    score = 0;
+tryUse.innerHTML= score;
+document.getElementById("imgHangman").style.backgroundImage= 'url(0.jpg)';
+    array3 = [];
+    test = [];
+    answerGiven= [];
+    document.getElementById("answerGiven").innerHTML= answerGiven;
+    document.getElementById("validate").disabled = false;
+    word = wordHidden[Math.floor(Math.random() * wordHidden.length)];
+ document.getElementById("buttonStart").disabled = "true";
+
+   array2 =  word.split('');
+   for (let i=0;i<array2.length;i++){
+       array3.push(array2[i].toUpperCase());
+   }
+   test =array3.map(element => element="_");
+ completeWord = array3.join("");
+
+
+   wordToFind.innerHTML = test.join('');
+   if (document.getElementById('validate').style.display ==="none"){
+       document.getElementById('validate').style.display ="block"
+       document.getElementById('reset').style.display = "none"
+ document.getElementById("endGame").style.display = "none";
+
+
+
+   }
+ }

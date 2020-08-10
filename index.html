@@ -15,7 +15,9 @@
             <div class="row">
             <div class="col-4 rulesGame">
                 <p>Essayez de deviner le mot mystère</p>
-                <p>Mais attention, vous n'avez le droit qu'à x try</p>
+                <p>Mais attention, vous n'avez le droit qu'à 10 chances</p>
+                <p>En-dessous, les lettres que vous avez déjà proposées : </p>
+                <p class= "answerGiven" id="answerGiven"></p>
 
             </div>
             <div class="col-6 imgHangman" id="imgHangman">
@@ -40,6 +42,7 @@
         </div>
     </form>
     <div class="row">
+    <button class="btn btn-primary mx-auto" id="reset" type="submit">reset</button>
     <button class="btn btn-primary mx-auto" id="validate" type="submit">Validez votre réponse</button>
 </div>
 
