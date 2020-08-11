@@ -9,13 +9,14 @@
     <body lang="fr">
         <h1 class="text-center col-12">Hangman</h1>
         <div class="row">
-            <button class="btn btn-primary mx-auto buttonStart" id="buttonStart" type="submit">Start</button>
+            <button class="btn btn-dark mx-auto buttonStart" id="buttonStart" type="submit">Start</button>
         </div>
         <div class="container-fluid rulesAndImg">
             <div class="row">
             <div class="col-4 rulesGame">
-                <p>Essayez de deviner le mot mystère</p>
-                <p>Mais attention, vous n'avez le droit qu'à 10 chances</p>
+                <p>Cliquez sur Start pour commencer.</p>
+                <p>Essayez de deviner le mot mystère.</p>
+                <p>Mais attention, vous n'avez le droit qu'à 10 chances.</p>
                 <p>En-dessous, les lettres que vous avez déjà proposées : </p>
                 <p class= "answerGiven" id="answerGiven"></p>
 
@@ -30,9 +31,10 @@
 
             </div>
         </div>
+        <section>
         <div>
             <p id="motATrouver" class="text-center">Mot à trouver :</p>
-            <p class="text-center" id="wordToFind"></p>
+            <p class="text-center wordToFind" id="wordToFind"></p>
             <p class="endGame text-center" id="endGame"></p>
         </div>
         <form>
@@ -45,6 +47,7 @@
     <button class="btn btn-primary mx-auto" id="reset" type="submit">reset</button>
     <button class="btn btn-primary mx-auto" id="validate" type="submit">Validez votre réponse</button>
 </div>
+<section>
 
 
 

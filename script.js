@@ -16,7 +16,6 @@ let wordHidden = [
 let completeWord = "";
 let answerGiven = [];
 let word ="";
-let randWord = Math.random()*10;
 array2 =[];
 let answers = "";
 array3 = [];
@@ -34,15 +33,21 @@ document.getElementById("reset").addEventListener('click',createArray);
 
 document.getElementById('validate').addEventListener('click',function(){
     let answersInput = document.getElementById('answer').value.toUpperCase();
+   let index2 = answerGiven.indexOf(answersInput);
     if (answersInput===""){
         alert("Le champ doit contenir au moins une lettre");
     }
-    else {
+    if (answerGiven.indexOf(answersInput)<0) {
     answerGiven.push(answersInput);
 
     }
+     else if (answerGiven.indexOf(answersInput)>=0){
+       alert("Vous avez déjà donné cette lettre");
+    //   console.log(answerGiven.indexOf(answersInput));
+    }
     document.getElementById("answerGiven").innerHTML= answerGiven;
 let index = array3.indexOf(answersInput);
+    
     console.log(completeWord);
     if (answersInput === completeWord){
         wordToFind.innerHTML = completeWord;
@@ -55,7 +60,7 @@ let index = array3.indexOf(answersInput);
 
         }
     }
-    if (index<0 && answersInput!=completeWord && answersInput!=""){
+    if (index<0 && answersInput!=completeWord && answersInput!="" && index2<0){
         score++;
 tryUse.innerHTML= score;
     }
